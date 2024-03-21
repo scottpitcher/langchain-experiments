@@ -1,3 +1,4 @@
+#%%
 from langchain.document_loaders import YoutubeLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -32,7 +33,7 @@ def get_response_from_query(db, query, k=4):
     docs = db.similarity_search(query, k=k)
     docs_page_content = " ".join([d.page_content for d in docs])
 
-    llm = OpenAI(model_name="text-davinci-003")
+    llm = OpenAI(model_name="davinci-002")
 
     prompt = PromptTemplate(
         input_variables=["question", "docs"],
@@ -62,6 +63,8 @@ def get_response_from_query(db, query, k=4):
 video_url = "https://www.youtube.com/watch?v=L_Guz73e6fw"
 db = create_db_from_youtube_video_url(video_url)
 
-query = "What are they saying about Microsoft?"
+query = "Who is Sam Altman?"
 response, docs = get_response_from_query(db, query)
 print(textwrap.fill(response, width=85))
+
+# %%
