@@ -31,7 +31,7 @@ def get_response_from_query(db, query, k=4):
     docs = db.similarity_search(query, k=k)
     docs_page_content = " ".join([d.page_content for d in docs])
 
-    chat = ChatOpenAI(model_name="gpt-3.5-turbo-16k", temperature=0.2)
+    chat = ChatOpenAI(model_name="gpt-3.5-turbo-0125", temperature=0.2)
 
     # Template to use for the system message prompt
     template = """
