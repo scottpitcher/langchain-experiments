@@ -1,3 +1,4 @@
+#%%
 from langchain.document_loaders import YoutubeLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -11,7 +12,6 @@ from langchain.prompts.chat import (
     HumanMessagePromptTemplate,
 )
 import textwrap
-
 load_dotenv(find_dotenv())
 embeddings = OpenAIEmbeddings()
 
@@ -68,3 +68,5 @@ db = create_db_from_youtube_video_url(video_url)
 query = "what is this video about?"
 response, docs = get_response_from_query(db, query)
 print(textwrap.fill(response, width=50))
+
+# %%
