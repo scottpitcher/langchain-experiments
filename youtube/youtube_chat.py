@@ -12,7 +12,9 @@ from langchain.prompts.chat import (
     HumanMessagePromptTemplate,
 )
 import textwrap
-load_dotenv(find_dotenv())
+load_dotenv('/Users/scottpitcher/Desktop/python/Github/Text Analysis/langchain-experiments/.env')
+
+
 embeddings = OpenAIEmbeddings()
 
 
